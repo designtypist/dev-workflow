@@ -18,7 +18,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 Install [Antigen](http://antigen.sharats.me/)
 > Make .antigen directory in your home directory and download antigen.zsh
 ```
-cd ~/ && mkdir .antigen
+cd ~/ && mkdir .antigen && cd ~/.antigen
 curl -L git.io/antigen > antigen.zsh
 ```
 
