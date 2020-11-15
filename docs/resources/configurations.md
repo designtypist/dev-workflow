@@ -4,28 +4,34 @@
 #ZSH
 ---
 
-### 1) Install ZSH, Oh-My-Zsh
-  Install zsh
+### 1) Install ZSH, Oh-My-Zsh, Antigen
+  Install [zsh](https://www.zsh.org/)
 ```
 sudo apt-get install zsh -y
 ```
 
-Install oh-my-zsh
+Install [oh-my-zsh](https://ohmyz.sh/)
 ```
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Make .antigen directory in home directory and download antigen.zsh
+Install [Antigen](http://antigen.sharats.me/)
+> Make .antigen directory in your home directory and download antigen.zsh
 ```
 cd ~/ && mkdir .antigen
 curl -L git.io/antigen > antigen.zsh
 ```
 
-### 2) Load Zsh by opening a terminal (Steps still not done)
+### 2) Open a terminal and change the shell of your terminal to Zsh
+```
+chsh -s $(which zsh)
+```
+- Logout and log back in
+- When prompted by Zsh for how to set up the configurations, press `2` to have it create a default one for you.
 
 ### 3) Create and modify zsh and antigen configurations
 
-Open .zshrc and add these lines to the bottom
+Open .zshrc probably found in your home directory and add these lines to the bottom.
 ```
 # Load Antigen
 source ~/.antigen/antigen.zsh
@@ -34,7 +40,7 @@ source ~/.antigen/antigen.zsh
 antigen init ~/.antigenrc
 ```
 
-Create .antigenrc and add these lines
+Create .antigenrc in your home directory (~/) and add these lines.
 > **HINT:** Modify the bundle section to your own perferences. Here is a list of [ohmyzsh plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
 ```
 # Load oh-my-zsh library.
@@ -57,5 +63,8 @@ antigen theme robbyrussell
 # Tell Antigen that you're done.
 antigen apply
 ```
+
+Other Resources if you want more clarity:
+- https://blog.phuctm97.com/zsh-antigen-oh-my-zsh-a-beautiful-powerful-robust-shell
 
 ## VSCode
