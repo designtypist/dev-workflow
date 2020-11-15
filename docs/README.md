@@ -6,10 +6,14 @@
 - Built with [Docsify](https://docsify.js.org/#/)
 - Hosted on [Netlify](TBD)
 
-## To Dos
-- OpenVPN with Private Internet Access
-    - [Windows Setup](https://www.privateinternetaccess.com/pages/client-support/windows-openvpn)
-    - [Linux Setup](https://www.privateinternetaccess.com/pages/client-support/ubuntu-openvpn)
-- Wake on LAN boot at startup and setup
+## TODO:
+- setup configurations for vscode settings, keybindings, and extensions
+- setup configurations for vim and vundle
+- create keybindings for POPOS
+- create keybindings for VSCode
+- crate usage, shortcuts, and keybindings for vim
 - Cronjobs the easy way with a gui
 - Add a table of contents to info congested pages
+- OpenVPN server and client setup with Private Internet Access? or with another tool
+    - [Windows Setup](https://www.privateinternetaccess.com/pages/client-support/windows-openvpn)
+    - [Linux Setup](https://www.privateinternetaccess.com/pages/client-support/ubuntu-openvpn)
