@@ -108,3 +108,9 @@ git config --global user.email johndoe@example.com
 git lfs track "*.psd"
 git add .gitattributes
 ```
+
+**GIT RESET EVERYTHING**
+> ⚠️ BE CAREFUL WHEN USING THIS COMMAND YOU HAVE BEEN WARNED!!!
+```
+git reset $(git commit-tree HEAD^{tree} -m "A new start")
+```

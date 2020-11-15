@@ -1,10 +1,10 @@
 - Commands
-  - [server setup](commands/server-setup.md)
-  - [linux basics](commands/linux-basics.md)
-  - [docker](commands/docker.md)
   - [git](commands/git.md)
-  - [nvm](commands/nvm.md)
   - [ssh](commands/ssh.md)
+  - [docker](commands/docker.md)
+  - [nvm](commands/nvm.md)
+  - [linux basics](commands/linux-basics.md)
+  - [server setup](commands/server-setup.md)
 
 - Keybindings
   - [editor](keybindings/editor.md)
@@ -12,6 +12,7 @@
   - [terminal](keybindings/terminal.md)
 
 - Resources
+  - [configurations](resources/configurations.md)
   - [cheatsheet](resources/cheatsheet.md)
   - [dev app list](resources/dev-app-list.md)
   - [dev communities](resources/dev-communities.md)
