@@ -39,6 +39,10 @@ sudo apt install docker-compose
 sudo apt install git-lfs
 sudo apt install php7.4-cli
 
+# python
+sudo apt install python3
+sudo apt install python3-pip
+
 # pnpm, yarn
 npm install -g pnpm
 npm install -g yarn
