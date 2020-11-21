@@ -43,3 +43,9 @@ Change shell
 ```
 chsh
 ```
+
+Fuser - identify processes using files or sockets
+```
+fuser 8080/tcp //print Process ID
+fuser -k 8080/tcp //kill the Process ID on the specified port
+```
