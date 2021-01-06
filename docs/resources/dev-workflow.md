@@ -1,5 +1,8 @@
 # Dev Workflow
 
+> Mindmap of Productivity Tools
+https://coggle.it/diagram/X_Yf8gfKJlYKmmcs/t/-/cd674fa8b08bc9f3c85a809fc05ad05d69d8ed5c6ea6f9a26dc71d719278fff9
+
 ## Time Tracker
 - ### [<i class="fa fa-clock fa-6" aria-hidden="true"></i> Activity Watch](http://localhost:5600)
 - ### [<i class="fa fa-building fa-6" aria-hidden="true"></i> Freedom To](https://freedom.to/dashboard)
