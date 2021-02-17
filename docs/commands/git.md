@@ -44,6 +44,12 @@ Show remote branches
 git remote -v
 ```
 
+Replace Remote GIT Repo
+```
+git remote remove origin
+git remote add origin [git repo]
+```
+
 Create remote branch
 ```
 git checkout -b [branch name]
