@@ -8,3 +8,9 @@ find [directory] - name [file]
 sudo service [service] restart
 tail -f
 ```
+
+Changing file's permissions and ownership
+```
+chmod 777 -R storage
+chown -R www-data:www-data storage
+```
