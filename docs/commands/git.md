@@ -29,7 +29,8 @@ git branch -m [old branch name] [new branch name]
 
 Git Revert Changes
 ```
-git reset --hard
+git reset --hard  //all files
+git checkout HEAD -- my-file.txt //single file
 ```
 
 Removes all the files and directories that are not yet tracked by git
