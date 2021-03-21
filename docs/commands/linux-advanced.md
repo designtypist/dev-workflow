@@ -11,6 +11,17 @@ tail -f
 
 Changing file's permissions and ownership
 ```
-chmod 777 -R storage
-chown -R www-data:www-data storage
+chmod 755 -R [directory]
+chgrp -R www-data [directory]
+chown -R www-data:www-data [directory]
+```
+
+Check if user has sudo privileges
+```
+sudo -l -U [user_name]
+```
+
+Add user to sudo group
+```
+sudo usermod -a -G sudo [user_name]
 ```
