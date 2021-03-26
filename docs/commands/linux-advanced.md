@@ -25,3 +25,9 @@ Add user to sudo group
 ```
 sudo usermod -a -G sudo [user_name]
 ```
+
+App Processes
+```
+netstat -tulpn | grep ":8000"
+kill -9 [process id]
+```
