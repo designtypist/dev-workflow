@@ -64,6 +64,7 @@ git push -f
 
 Edit, add and commit your files.
 ```
+git add -A
 git push -u origin [branch name]
 ```
 
