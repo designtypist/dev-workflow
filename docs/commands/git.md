@@ -1,8 +1,9 @@
 # Git commands
 
-**Most used:**
+**Commonly used:**
 ```
 git add
+git add -A
 git branch
 git checkout [./-- (file name)]
 git diff [--staged]
@@ -65,6 +66,7 @@ git push -f
 Edit, add and commit your files.
 ```
 git add -A
+git commit -m "message"
 git push -u origin [branch name]
 ```
 
