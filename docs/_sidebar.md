@@ -4,6 +4,7 @@
   - [docker](commands/docker.md)
   - [nvm](commands/nvm.md)
   - [linux basics](commands/linux-basics.md)
+  - [linux advanced](commands/linux-advanced.md)
   - [server setup](commands/server-setup.md)
 
 - Keybindings
