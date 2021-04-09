@@ -31,3 +31,8 @@ App Processes
 netstat -tulpn | grep ":8000"
 kill -9 [process id]
 ```
+
+Check nameservers of domain
+```
+nslookup -type=ns [domain](ie. designtypist.com)
+```
