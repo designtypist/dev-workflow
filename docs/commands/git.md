@@ -83,6 +83,14 @@ git rebase -i origin/[branch name]~4 [branch name]
 git push origin +[branch name]
 ```
 
+Local rebase then push changes to remote branch
+```
+git log --graph --branches --oneline
+git rebase --interactive HEAD~5
+git push origin +[branch name]
+git rebase --abort
+```
+
 Rename remote branch
 ```
 git branch -m [old branch name] [new branch name]
