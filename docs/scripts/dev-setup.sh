@@ -39,9 +39,10 @@ sudo apt install docker-compose
 sudo apt install git-lfs
 sudo apt install php7.4-cli
 
-# python
+# python, pip
 sudo apt install python3
 sudo apt install python3-pip
+pip3 install ansible - 'pip3 install ansible==2.4.0.0 - trellis usage' 
 
 # pnpm, yarn
 npm install -g pnpm
@@ -51,6 +52,14 @@ npm install -g yarn
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 mv composer.phar /usr/local/bin/composer
 
+# homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 ## xml-writer, mbstring
 sudo apt install php-xmlwriter
 sudp apt install php-mbstring
+
+# virtual machines
+sudo apt-get install virtualbox
+sudo apt-get install vagrant
+
