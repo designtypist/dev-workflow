@@ -26,6 +26,13 @@ sudo apt-get update && sudo apt-get install brave-browser -y
 # filezilla
 sudo apt-get install filezilla
 
+# activtiy watch
+wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-linux-x86_64.zip #REMINDER: update version
+unzip activitywatch-*.zip
+rm activitywatch-*.zip
+mkdir ~/apps && mv activitywatch ~/apps && cd ~/apps/activitywatch
+./aw-qt # access via web using http://localhost:5600/
+
 # spotify
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -40,18 +47,3 @@ rm ./discord.deb
 wget https://downloads.slack-edge.com/linux_releases/\slack-desktop-4.11.1-amd64.deb #REMINDER: update version
 sudo gdebi ./slack-desktop-*.deb
 rm ./slack-desktop-*.deb
-
-# figma
-wget https://github.com/Figma-Linux/figma-linux/releases/download/v0.6.3/figma-linux_0.6.3_amd64.deb #REMINDER: update version
-sudo gdebi ./figma-linux_*.deb
-rm ./figma-linux_*.deb
-
-# activtiy watch
-wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-linux-x86_64.zip #REMINDER: update version
-unzip activitywatch-*.zip
-rm activitywatch-*.zip
-mkdir ~/apps && mv activitywatch ~/apps && cd ~/apps/activitywatch
-./aw-qt # access via web using http://localhost:5600/
-
-# trello
-
