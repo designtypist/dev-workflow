@@ -14,7 +14,11 @@ sudo apt-get install cockpit -y
   addgroup --system wheel
   usermod -a -G systemd-journal,adm,wheel $USER
   
-# mariadb
+# mysql and mariadb
+sudo apt-get install mysql-server
+sudo apt-get install mariadb-server
+sudo apt-get install libmariadbclient-dev
+sudo apt-get install libmysqlclient-dev
 sudo apt install mariadb-client-core-10.3
 
 # portainer
