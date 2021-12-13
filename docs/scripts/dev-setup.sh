@@ -11,8 +11,9 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 cd ~/ && mkdir .antigen
 curl -L git.io/antigen > antigen.zsh
 
-# vim, vundle
+# vim, neovim
 sudo apt-get install vim -y
+sudo apt-get install neovim -y
 
 # git, byobu, htop
 sudo apt-get install byobu git htop screen -y
