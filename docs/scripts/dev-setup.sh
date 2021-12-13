@@ -15,7 +15,11 @@ curl -L git.io/antigen > antigen.zsh
 sudo apt-get install vim -y
 
 # git, byobu, htop
-sudo apt-get install byobu git htop -y
+sudo apt-get install byobu git htop screen -y
+
+# screen setup
+mkdir ~/.screen && chmod 700 ~/.screen
+export SCREENDIR=$HOME/.screen
 
 # docker
 sudo apt install docker.io
