@@ -66,5 +66,3 @@ antigen apply
 
 Other Resources if you want more clarity:
 - https://blog.phuctm97.com/zsh-antigen-oh-my-zsh-a-beautiful-powerful-robust-shell
-
-## VSCode
