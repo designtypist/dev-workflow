@@ -5,3 +5,5 @@
 - [JS Fiddle](https://jsfiddle.net/)
 - [Code Sandbox](https://codesandbox.io/)
 - [Hacker Rank](https://www.hackerrank.com/)
+- [Neo Vim Setup](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+  - [NVim Extensions](https://www.freecodecamp.org/news/vim-for-people-who-use-visual-studio-code/)  
