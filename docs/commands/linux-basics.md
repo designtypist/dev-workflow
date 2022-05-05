@@ -4,6 +4,7 @@ Useful find commands
 ```
 grep -rnw [dir] -e '[string]'
 find [dir] -name [file]
+mv .[!.]* [dir] (hidden files)
 ```
 
 Find Linux OS Distribution Version
