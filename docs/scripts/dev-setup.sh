@@ -63,6 +63,7 @@ mv composer.phar /usr/local/bin/composer
 ## xml-writer, mbstring
 sudo apt install php-xmlwriter
 sudo apt install php-mbstring
+apt install zip unzip php-zip
 
 # virtual machines
 sudo apt-get install virtualbox
