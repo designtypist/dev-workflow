@@ -11,7 +11,10 @@ ssh-keygen -p -o -f [source of SSH key]
 Copy SSH Public Keys
 ```
 ssh-copy-id [user@ip-address]
-ssh-copy-id [pi@192.168.0.1]
+ssh-copy-id [pi@192.168.0.100]
+
+ssh-copy-id -i [ssh_public_key path] [user@ip-address]
+ssh-copy-id -i ~/.ssh/other_key.pub jchung@192.168.0.100
 ```
 
 Import SSH Public Keys
