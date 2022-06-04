@@ -98,6 +98,24 @@ git push origin :[old branch name] [new branch name]
 git push origin -u [new branch name]
 ```
 
+Initialize new repository
+```
+echo "# example README.md" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github.com:designtypist/example.git
+git push -u origin master
+```
+
+Push an existing repository
+```
+git remote add origin git@github.com:designtypist/example.git
+git branch -M master
+git push -u origin master
+```
+
 ### Other Git Commands
 **[Git Duplication of a Repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)**
 ```
