@@ -13,6 +13,7 @@ git commit -a -m "[commit message]"
 git pull origin [remote branch]
 git push
 git log
+git clone [OPTIONS --recursive] [git repo]
 ```
 
 ### Git Local
@@ -98,6 +99,8 @@ git push origin :[old branch name] [new branch name]
 git push origin -u [new branch name]
 ```
 
+### Setting up repositories for use
+
 Initialize new repository
 ```
 echo "# example README.md" >> README.md
@@ -114,6 +117,26 @@ Push an existing repository
 git remote add origin git@github.com:designtypist/example.git
 git branch -M master
 git push -u origin master
+```
+
+### Git Submodules
+**[Git Submodules](https://www.vogella.com/tutorials/GitSubmodules/article.html)**
+Initialize Git submodules by cloning the submodule repo
+```
+git submodule update --init
+git submodule update --init --recursive //nested submodules
+```
+
+Adding Git submodules and tracking commits
+```
+git submodule add -b master [git repo]
+git submodule init
+```
+
+Pulling with submodules
+```
+git pull --recursive-submodules //pull all changes including submodules
+git submodule update --remote //pull all changes for submodules
 ```
 
 ### Other Git Commands
