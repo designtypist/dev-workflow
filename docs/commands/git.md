@@ -139,6 +139,13 @@ git pull --recursive-submodules //pull all changes including submodules
 git submodule update --remote //pull all changes for submodules
 ```
 
+Delete a submodule from a repo
+```
+git submodule deinit -f — mymodule
+rm -rf .git/modules/mymodule
+git rm -f mymodule
+```
+
 ### Other Git Commands
 **[Git Duplication of a Repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)**
 ```
