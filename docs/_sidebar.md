@@ -13,14 +13,17 @@
   - [terminal](keybindings/terminal.md)
 
 - Resources
-  - [configurations](resources/configurations.md)
   - [cheatsheet](resources/cheatsheet.md)
-  - [dev app list](resources/dev-app-list.md)
-  - [dev communities](resources/dev-communities.md)
-  - [dev education](resources/dev-education.md)
-  - [dev update](resources/dev-update.md)
-  - [dev tools](resources/dev-tools.md)
-  - [dev workflow](resources/dev-workflow.md)
+  Linux Admin:
+  - [power saving](resources/linux-admin/power-saving.md)
+  Devlopment Environment:
+  - [dev app list](resources/dev-env/dev-app-list.md)
+  - [dev communities](resources/dev-env/dev-communities.md)
+  - [dev education](resources/dev-env/dev-education.md)
+  - [dev update](resources/dev-env/dev-update.md)
+  - [dev tools](resources/dev-env/dev-tools.md)
+  - [dev workflow](resources/dev-env/dev-workflow.md)
+
 
 - Archives
   - N/A
