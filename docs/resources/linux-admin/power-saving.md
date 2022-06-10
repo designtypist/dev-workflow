@@ -1,10 +1,20 @@
 # Power Saving
 > Linux tools to lower power consumption
 
+### Upower - Monitor activity from the power deamon
+```
+upower --monitor-detail
+```
+
 ### Powertop - A power consumption and power management diagnosis tool
 ```
 sudo apt install powertop
-sudo powertop
+sudo powertop --calibrate //run power diagnostic
+sudo powertop --csv=powertop_report.txt --time=20s //output to csv report
+powertop --html=powertop //generate html report
+
+sudo systmctl start powertop.service //service that helps to automatically set all turnables to good for optimal power savings
+sudo systmctl enable powertop.service //make daemon service start at boot time
 ```
 
 ### TLP - Apply laptop power saving settings
