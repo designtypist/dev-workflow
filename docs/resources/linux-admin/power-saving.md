@@ -11,7 +11,7 @@ upower --monitor-detail
 sudo apt install powertop
 sudo powertop --calibrate //run power diagnostic
 sudo powertop --csv=powertop_report.txt --time=20s //output to csv report
-powertop --html=powertop //generate html report
+sudo powertop --html=powertop //generate html report
 
 sudo systmctl start powertop.service //service that helps to automatically set all turnables to good for optimal power savings
 sudo systmctl enable powertop.service //make daemon service start at boot time
