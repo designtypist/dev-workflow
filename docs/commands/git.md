@@ -119,6 +119,17 @@ git branch -M master
 git push -u origin master
 ```
 
+### Duplicating a repository
+```
+git clone --bare https://github.com/exampleuser/old-repository.git //create a bare clone of the repository
+cd old-repository.git
+
+git push --mirror https://github.com/exampleuser/new-repository.git //mirror-push to the new repository
+
+cd ..
+rm -rf old-repository.git
+```
+
 ### Git Submodules
 **[Git Submodules](https://www.vogella.com/tutorials/GitSubmodules/article.html)**
 Initialize Git submodules by cloning the submodule repo
