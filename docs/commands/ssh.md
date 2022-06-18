@@ -32,3 +32,10 @@ SSH Passwordless Access
 ssh-agent $SHELL
 ssh-add
 ```
+
+Setup remote SSH with no password
+```
+sudo vim /etc/sudoers
+```
+- insert into file [user] ALL=(ALL) NOPASSWD: ALL
+
