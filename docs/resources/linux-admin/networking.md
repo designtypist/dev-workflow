@@ -3,6 +3,8 @@
 ### Network
 ```
 sudo service networking restart
+
+sudo vim /etc/netplan/config.yaml
 ```
 
 ### Hostname
