@@ -7,6 +7,12 @@ sudo service networking restart
 sudo vim /etc/netplan/config.yaml
 ```
 
+### Monitoring
+```
+sudo apt-get install nmap
+sudo namp -sn 192.168.1.0/24
+```
+
 ### Hostname
 ```
 sudo vim /etc/hosts
