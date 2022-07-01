@@ -65,4 +65,5 @@ antigen apply
 ```
 
 Other Resources if you want more clarity:
+- https://medium.com/@falieson/setup-zsh-w-antigen-and-a-spacey-theme-7a66808218dc
 - https://blog.phuctm97.com/zsh-antigen-oh-my-zsh-a-beautiful-powerful-robust-shell
