@@ -12,7 +12,7 @@ git stash
 git commit -a -m "[commit message]"
 git pull origin [remote branch]
 git push
-git log
+git log [--raw] | [-p]
 git clone [OPTIONS --recursive] [git repo]
 ```
 
