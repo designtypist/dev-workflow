@@ -1,32 +1,78 @@
 # Networking
 
 ### Network
+Setup network configuration
 ```
-sudo service networking restart
-
 sudo vim /etc/netplan/config.yaml
+sudo service networking restart
 ```
 
-### Monitoring
+Check network activity
+* Common usage
 ```
-sudo apt-get install nmap
-sudo namp -sn 192.168.1.0/24
+ping [ip addr / domain]
+nsloop [server]
+dig [ip addr / domain]
+tracepath [ip addr / domain ]
+```
+
+* Advanced methods
+```
+cat /etc/services
+grep -w 80 /etc/services
+egrep -w '53/(tcp/udp)' /etc/services
 ```
 
 ### Hostname
 ```
-sudo vim /etc/hosts
-```
-Hostnamectl
-```
+sudo vim /etc/hosts //edit hosts configuration file
+hostname //check hostname
+
 hostnamectl //check the hostname config
-sudo hostnamectl set-hostname vim //set config file
+hostnamectl set-hostname [hostname] //set config file
 sudo systemctl restart avahi-daemon //restart mDNS service
 ```
 
 ### DNS
+1) Setup with resolve configuration
 ```
 sudo vim /etc/resolv.conf
+```
+
+2) Setup with BIND
+Installation
+```
+sudo apt-get install bind9 bind9utils bind9-doc
+```
+
+Setup
+```
+sudo ufw allow Bind9 //add firewall rule
+
+sudo systemctl restart bind9
+sudo vim /etc/bind/name.conf.options
+```
+
+3) Setup with DNSMasq
+Installation and Usage
+```
+sudo apt-get install dnsmasq
+sudo systemctl [status/restart/start/stop/enable/disable] dnsmasq
+sudo systemctl [status/restart/start/stop/enable/disable] resolvconf
+```
+
+Setup DNS configurations
+```
+sudo cp /etc/dnsmasq.conf{,.bak}
+sudo vim /etc/dnsmasq.conf
+
+dnsmasq --test //check for syntax errors
+```
+
+Setup local hosts configurations
+```
+sudo vim /etc/hosts
+sudo vim /etc/resolv.conf //add local dns server
 ```
 
 ### Wake On LAN
@@ -55,10 +101,17 @@ wakeonlan [mac address]
 
 ###Resources:
 - Linux:
+  Wake-on-LAN  
   - https://kodi.wiki/view/HOW-TO:Set_up_Wake-on-LAN_for_Ubuntu
   - https://www.cyberciti.biz/tips/linux-send-wake-on-lan-wol-magic-packets.html
   - https://wiki.debian.org/WakeOnLan
   - https://a3nm.net/blog/wakeonlan.html
+  BIND
+  - https://www.server-world.info/en/note?os=Ubuntu_22.04&p=dns&f=1
+  DNSMasq
+  - https://kifarunix.com/configure-local-dns-server-using-dnsmasq-on-ubuntu-20-04/ 
+  - https://stevessmarthomeguide.com/home-network-dns-dnsmasq/
+  - https://www.howtogeek.com/devops/how-to-run-a-local-network-dhcp-server-with-dnsmasq/
 - Windows:
   - https://www.nirsoft.net/utils/wake_on_lan.html#DownloadLinks
   - https://www.groovypost.com/howto/enable-wake-on-lan-windows-10/
