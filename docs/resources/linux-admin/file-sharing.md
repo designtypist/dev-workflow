@@ -53,5 +53,46 @@ sudo apt-get install nfs-common
 ...
 ```
 
+### Syncthing
+Installation
+```
+sudo apt install syncthing
+syncthing --version
+```
+
+
+Setup service for use
+```
+sudo vim /etc/systemd/system/syncthing@$USER
+
+//Add this contents below
+[Unit]
+Description=Syncthing - Open Source Continuous File Synchronization for %I
+Documentation=man:syncthing(1)
+After=network.target
+
+[Service]
+User=%i
+ExecStart=/usr/bin/syncthing -no-browser -gui-address="0.0.0.0:8384" -no-restart -logflags=0
+Restart=on-failure
+SuccessExitStatus=3 4
+RestartForceExitStatus=3 4
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Starting the service
+```
+sudo systemctl daemon-reload
+sudo systemctl start syncthing@$USER
+sudo systemctl status syncthing@$USER
+
+sudo ufw allow 8384 //allow port to be accessible
+
+//Open browser and access Syncthing using [ip address]:8384
+```
+
 ### Resources
 - [NFS Setup for Ubuntu](https://linuxize.com/post/how-to-install-and-configure-an-nfs-server-on-ubuntu-20-04/#installing-the-nfs-server)
+- [How to install and use Syncthing on Ubuntu](https://computingforgeeks.com/how-to-install-and-use-syncthing-on-ubuntu/)
