@@ -23,6 +23,12 @@ grep -w 80 /etc/services
 egrep -w '53/(tcp/udp)' /etc/services
 ```
 
+App Processes
+```
+netstat -tulpn | grep ":8000"
+kill -9 [process id]
+```
+
 ### Hostname
 ```
 sudo vim /etc/hosts //edit hosts configuration file
@@ -34,6 +40,12 @@ sudo systemctl restart avahi-daemon //restart mDNS service
 ```
 
 ### DNS
+Check nameservers of domain
+```
+nslookup -type=ns [domain](ie. designtypist.com)
+```
+
+Setup configuration of local DNS
 1) Setup with resolve configuration
 ```
 sudo vim /etc/resolv.conf
