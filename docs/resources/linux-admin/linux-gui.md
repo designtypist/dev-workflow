@@ -15,7 +15,14 @@ cd cockpit-file-sharing
 make install
 ```
 
-Samba Setup
+### VMs and Docker Containers
+Installation
+```
+sudo apt install cockpit-machines -y
+sudo apt install cockpit-podman -y
+```
+
+### Samba Setup
 ```
 vim /etc/samba/smb.conf
 ```
