@@ -20,3 +20,18 @@ Encrypting/Decrypting Files
 gpg --out [encyrpted filename] --recipient [email] --encrypt [original filename]
 gpg --out [decrypted filename] --decrypt [encrypted filename]
 ```
+
+Signage of Files
+```
+gpg --out [signed filename] --sign [unsigned filename] //signing file
+
+gpg --out [verified encrypted filename] --verify [signed filename] //verify signed file
+    gpg --out MessageFromCB.gpg --verify signed-filename
+gpg --out [undecrypted filename] --decypt [encrypted filename] //decrypt file
+    gpg --out MessageFromCB.txt --decrypt MessageFromCB.gpg
+```
+
+Revoking a Key
+```
+gpg --out [key revocation filename] --gen-revoke
+```
