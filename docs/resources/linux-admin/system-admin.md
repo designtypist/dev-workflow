@@ -4,6 +4,7 @@
 Check process status
 ```
 ps -ef | grep 'string'
+ps aux | grep 'string'
 ```
 
 Check disks
@@ -47,6 +48,11 @@ List USB devices
 lsusb
 ```
 
+List block devices
+```
+lsblk
+```
+
 ## Change Permissions
 Changing files or directories permissions
 ```
@@ -65,20 +71,6 @@ chown -R www-data:www-data [directory]
 Check if user has sudo privileges
 ```
 sudo -l -U [username]
-```
-
-## Control system services
-Method 1
-```
-sudo systemctl list-unit-files --type service -all //list all services
-sudo systemctl | grep [service names] //filter services
-sudo systemctl start | stop | restart | status | enable [service name]
-```
-
-Method 2
-```
-sudo service --status-all //list all services
-sudo service [service name] start | stop | restart | status | enable
 ```
 
 ## Users and Groups
@@ -101,6 +93,31 @@ usermod -G [username] [group]
 Return user identity
 ```
 id -a [username]
+```
+
+## Disk Partitions
+Manipulate disk partitions
+```
+sudo fdisk -l
+```
+
+Editing mounting points
+```
+sudo vim /etc/fstab
+```
+
+## Control system services
+Method 1
+```
+sudo systemctl list-unit-files --type service -all //list all services
+sudo systemctl | grep [service names] //filter services
+sudo systemctl start | stop | restart | status | enable [service name]
+```
+
+Method 2
+```
+sudo service --status-all //list all services
+sudo service [service name] start | stop | restart | status | enable
 ```
 
 ## Managing apt and repos
@@ -135,7 +152,6 @@ List repo
 sudo apt edit-sources
 sudo vim /etc/apt/source.list
 ```
-
 
 ## Manual Pages
 Check exit code status
