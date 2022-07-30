@@ -5,6 +5,29 @@ Check process status
 ```
 ps -ef | grep 'string'
 ps aux | grep 'string'
+
+systemctl list-units
+systemctl list-unit-files
+systemctl cat [service name]
+```
+
+Change system settings
+```
+sudo vim /etc/systemd/system/[service name]
+systemd-delta //find system config changes
+systemctl daemon-reload //reload unit configuration files
+systemctl restart [service name]
+```
+
+Using system services
+```
+systemctl start | stop | status | enable | disable | reload | restart [service name]
+systemctl is-active | is-enabled | is-failed [service name]
+
+systemctl is-system-running //check system's operational status
+systemctl --failed //check failed system services
+
+systemctl get-default | set-default | isolate
 ```
 
 Check disks
