@@ -61,19 +61,23 @@ Print distribution specific info
 lsb_release -a
 ```
 
-List all PCI devices
+List Hardware Info
 ```
-lspci
-```
+lspci //list all PCI devices
+  lspci -t
+  lspci -v
+lsusb //list USB devices
+  lsusb -v
+lsblk //list block devices
+  lsblk -a
+lshw //list system hardware info
+  lshw -short
+lscpu //list cpu info
+sudo hdparm /dev/sda1 //check sata devices
+  sudo hdparm /g /dev/sda1
+sudo fdisk -l //check Linux file system info
 
-List USB devices
-```
-lsusb
-```
-
-List block devices
-```
-lsblk
+sudo dmidecode -t memory | system | bios | processor //extract info about hardware info
 ```
 
 ## Change Permissions
