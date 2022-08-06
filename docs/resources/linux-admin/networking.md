@@ -11,9 +11,12 @@ Check network activity
 * Common usage
 ```
 ping [ip addr / domain]
+ifconfig [ethernet interface]
+ip a
 nsloop [server]
 dig [ip addr / domain]
 tracepath [ip addr / domain ]
+nmcli
 ```
 
 * Advanced methods
