@@ -1,4 +1,6 @@
-# MYSQL Commands
+# Database
+
+## MYSQL Database
 
 Launch MySQL
 ```

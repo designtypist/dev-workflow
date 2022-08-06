@@ -1,7 +1,7 @@
 # Terminal Keybindings
 A list of my terminal cheatsheet to speed up my terminal use
 
-### Byobu
+### Byobu-Screen
 - help (`ctrl-a + ?`)
 - kill byobu (`ctrl-a + \`)
 - detach without kill (`ctrl-a + ctrl-d`)

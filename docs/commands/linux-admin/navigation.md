@@ -1,4 +1,5 @@
-# Tree Commmands
+# Navigation in Linux 
+## Tree Commmands
 
 Basic command usage
 ```

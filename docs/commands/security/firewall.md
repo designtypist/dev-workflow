@@ -1,4 +1,6 @@
-# UFW Firewall
+# Security Firewall
+
+## UFW Firewall
 
 Common commands
 ```

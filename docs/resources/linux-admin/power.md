@@ -1,4 +1,6 @@
-# Power Saving
+# Power Commands
+
+##  Power Saving
 > Linux tools to lower power consumption
 
 ### Upower - Monitor activity from the power deamon
