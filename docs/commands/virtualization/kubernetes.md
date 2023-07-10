@@ -83,4 +83,6 @@ kubectl cluster-info dump > cluster-dump
 ```
 kubeadm reset -f
 sudo rm -rf /etc/kubernetes
+
+sudo rm -rf /var/lib/etcd
 ```
