@@ -49,7 +49,7 @@ sudo kubeadm token create --print-join-command //reprint out k3 worker node
 kubectl get nodes //check if joining the cluster has been successful
 ```
 
-Basic Commands (get, describe, delete, explain...)
+## Basic Commands (get, describe, delete, explain...)
 ```
 kubectl get all
 kubectl get all -n kube-system
@@ -82,4 +82,5 @@ kubectl cluster-info dump > cluster-dump
 ## Remove all traces of kubernetes on machine (use with CAUTION)
 ```
 kubeadm reset -f
+sudo rm -rf /etc/kubernetes
 ```
