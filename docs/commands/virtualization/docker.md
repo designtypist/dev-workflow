@@ -19,38 +19,29 @@
 </details>
 
 
-Run a docker container (wip)
+Docker container commands
 ```
-$ docker run -d -P -p 8888:80 [container] --name static-size [container]
-```
-- -d detach our terminal
-- -p Specify a custom port
-- -P will publish all exposed ports to random ports
-- --name corresponds to a name we want to give the container
+docker run -d -P -p 8000:80 [container] --name static-size [container]
 
-Pull docker image
-```
-$ docker pull [container ie. hello-world]
-```
+-d detach our terminal
+-p Specify a custom port
+-P will publish all exposed ports to random ports
+--name corresponds to a name we want to give the container
 
-List docker running containers
-```
-$ docker ps [-a]
+docker ps [-a]
+docker stop [id] [id2]
+docker rm [id] [id2]
 ```
 
-Delete docker container
+Docker image commands
 ```
-$ docker rm [id]
-```
-
-Docker containers port that are running
-```
-$ docker port [container]
+docker images //list downloaded images
+docker rmi [id] [id2] [id3] //delete image(s)
 ```
 
 Enter into a docker container
 ```
-$ docker exec -it [container_id] /bin/bash
+docker exec -it [container_id] /bin/bash
 ```
 
 Copy contents to a docker container
@@ -58,7 +49,17 @@ Copy contents to a docker container
 docker cp [files] [conatiner_id]:[files]
 ```
 
-List downloaded docker images
+Docker checks
 ```
-$ docker images
+docker port [container]
+docker logs [id]
+docker stats
+```
+
+Docker Push/Pull image repository
+```
+docker login
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+docker push IMAGE_NAME[:TAG] (ie. ubuntu:1.0)
+docker pull IMAGE_NAME[:TAG] (ie. hello-world)
 ```
