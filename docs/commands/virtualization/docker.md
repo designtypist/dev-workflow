@@ -30,6 +30,7 @@ docker run -d -P -p 8000:80 [container] --name static-size [container]
 
 docker ps [-a]
 docker stop [id] [id2]
+docker start [id] [id2]
 docker rm [id] [id2]
 ```
 
@@ -62,4 +63,15 @@ docker login
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 docker push IMAGE_NAME[:TAG] (ie. ubuntu:1.0)
 docker pull IMAGE_NAME[:TAG] (ie. hello-world)
+```
+
+Docker volume commands
+```
+docker run -d --name [container name] -p 8001:8080 -v /opt:/etc/test [docker image]
+
+docker volume -h
+docker volume create myvolume
+docker volume ls
+docker run -d --name [container name] -p 8001:8080 -v myvolume:/etc/test [docker image]
+ls /var/lib/docker/volumes/  //location of create volume 
 ```
