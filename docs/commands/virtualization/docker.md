@@ -59,10 +59,17 @@ docker stats
 
 Docker Push/Pull image repository
 ```
+# Public repository
 docker login
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 docker push IMAGE_NAME[:TAG] (ie. ubuntu:1.0)
 docker pull IMAGE_NAME[:TAG] (ie. hello-world)
+
+# Private repository
+docker run -d --name myregistry -p 5000:5000 registry:2
+docker tag designtypist/first:1.0 localhost:5000/first:1.0
+docker push localhost:5000/first:1.0
+docker pull localhost:5000/first:1.0
 ```
 
 Docker volume commands
@@ -74,4 +81,11 @@ docker volume create myvolume
 docker volume ls
 docker run -d --name [container name] -p 8001:8080 -v myvolume:/etc/test [docker image]
 ls /var/lib/docker/volumes/  //location of create volume 
+```
+
+Docker network commands
+```
+docker network ls
+docker network inspect [network type]
+  docker network inspect bridge
 ```
