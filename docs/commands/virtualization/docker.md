@@ -86,6 +86,12 @@ ls /var/lib/docker/volumes/  //location of create volume
 Docker network commands
 ```
 docker network ls
-docker network inspect [network type]
+docker network inspect [network name]
   docker network inspect bridge
+
+docker network create [network name] --subnet=[subnet]
+  docker network create mynetwork --subnet=192.168.0.0/16
+docker run -d --name [container name] -p 8000:8080 --network [network name] [image name]
+  docker run -d --name mycontainer -p 8000:8080 --network mynetwork designtypist/first:1.0
+  docker network inspect mynetwork
 ```
