@@ -42,12 +42,12 @@ docker rmi [id] [id2] [id3] //delete image(s)
 
 Enter into a docker container
 ```
-docker exec -it [container_id] /bin/bash
+docker exec -it [container] /bin/bash
 ```
 
 Copy contents to a docker container
 ```
-docker cp [files] [conatiner_id]:[files]
+docker cp [files] [container]:[files]
 ```
 
 Docker checks
@@ -74,12 +74,12 @@ docker pull localhost:5000/first:1.0
 
 Docker volume commands
 ```
-docker run -d --name [container name] -p 8001:8080 -v /opt:/etc/test [docker image]
+docker run -d --name [container] -p 8001:8080 -v /opt:/etc/test [docker image]
 
 docker volume -h
 docker volume create myvolume
 docker volume ls
-docker run -d --name [container name] -p 8001:8080 -v myvolume:/etc/test [docker image]
+docker run -d --name [container] -p 8001:8080 -v myvolume:/etc/test [docker image]
 ls /var/lib/docker/volumes/  //location of create volume 
 ```
 
@@ -91,7 +91,21 @@ docker network inspect [network name]
 
 docker network create [network name] --subnet=[subnet]
   docker network create mynetwork --subnet=192.168.0.0/16
-docker run -d --name [container name] -p 8000:8080 --network [network name] [image name]
+docker run -d --name [container] -p 8000:8080 --network [network name] [image name]
   docker run -d --name mycontainer -p 8000:8080 --network mynetwork designtypist/first:1.0
   docker network inspect mynetwork
+
+docker network rm [network name]
+```
+
+Docker compose commands
+```
+# Existing compose.yaml created
+docker-compose -f compose.yaml up -d
+docker-compose -f compose.yaml down
+```
+
+Remove unused docker resources
+```
+docker system prune
 ```
