@@ -18,6 +18,12 @@
 </p>
 </details>
 
+Run Docker without root privileges
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+# logout and log back in
+```
 
 Docker container commands
 ```
