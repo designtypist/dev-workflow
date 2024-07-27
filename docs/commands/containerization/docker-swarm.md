@@ -22,6 +22,8 @@ List Docker nodes or services
 docker node ls
 docker service ls
 docker service ps [service name]
+docker stack ls
+docker stack ps [docker stack name]
 ```
 
 Docker remove service
@@ -77,4 +79,11 @@ Draining the node
 ```
 docker node update --availability drain [node]
   docker node update --availability drain master
+```
+
+Docker stack commands
+```
+docker stack deploy --compose-file [docker-compose yaml] [docker stack name]
+  docker stack deploy --compose-file compose.yaml stackdemo
+  docker stack ps stackdemo
 ```
