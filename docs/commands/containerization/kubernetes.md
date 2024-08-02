@@ -1,6 +1,6 @@
 # Kubernetes
 
-## Basic Commands (get, describe, delete, explain...)
+### Basic Commands (get, describe, delete, explain...)
 ```
 alias k=kubectl
 
@@ -36,7 +36,7 @@ kubectl exec -it [pod name] bash
 kubeadm reset
 ```
 
-Kubernetes Deployment
+### Kubernetes deployment
 ```
 ### Run a pod with image
 kubectl run first --image=designtypist/first:1.0 --port=8080
@@ -59,8 +59,7 @@ kubectl apply -f deploy.yaml
 kubectl get all
 ```
 
-
-Horizontal Scaling
+### Horizontal scaling
 ```
 ### Manual Scaling
 kubectl get all
@@ -80,4 +79,28 @@ kubectl get all
 kubectl get all
 kubectl autoscale deploy mydeploy --cpu-percent=80 --min=2 --max=10 
 kubectl get hpa
+```
+
+### Zero down time upgrade
+```
+kubectl create deploy mydeploy --image=nginx:latest --port=80
+kubectl scale deploy mydeploy --replicas=20
+kubectl describe po mydeploy-5b477bf648-z75xc
+kubectl rollout history deploy mydeploy
+kubectl rollout status deploy mydeploy
+kubectl get all
+kubectl set image deploy mydeploy nginx=nginx:1.8.1 --record
+kubectl rollout history deploy mydeploy
+kubectl rollout status deploy mydeploy
+kubectl get all
+kubectl describe po mydeploy-6b7b846487-xnb9x
+kubectl set image deploy mydeploy nginx=nginx:1.9.1 --record
+kubectl rollout history deploy mydeploy
+kubectl rollout status deploy mydeploy
+kubectl get all
+kubectl describe po mydeploy-5f69579954-zpbs6
+kubectl rollout history deploy mydeploy
+kubectl get all
+kubectl rollout undo deploy mydeploy --to-revision=2
+kubectl rollout history deploy mydeploy
 ```
