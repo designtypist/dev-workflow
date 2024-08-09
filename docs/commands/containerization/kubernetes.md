@@ -104,3 +104,43 @@ kubectl get all
 kubectl rollout undo deploy mydeploy --to-revision=2
 kubectl rollout history deploy mydeploy
 ```
+
+### Service
+```
+# Creating service using yaml files
+git clone https://github.com/designtypist/serviceDemo.git
+cd serviceDemo/
+cd build/
+vi app.py 
+cd ..
+cd deploy/
+
+kubectl get all
+vi db-pod.yml
+kubectl apply -f db-pod.yml
+kubectl get po
+vi db-svc.yml
+kubectl apply -f db-svc.yml
+kubectl get all
+vi web-pod.yaml
+kubectl apply -f web-pod.yaml
+kubectl get all
+vi web-svc.yml
+kubectl apply -f web-svc.yml
+kubectl get all
+kubectl get no -o wide
+
+curl 172.31.41.217:31605/init
+curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "1", "user":"John Doe"}' http://172.31.41.217:31605/users/add
+curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "2", "user":"Bob"}' http://172.31.41.217:31605/users/add
+curl 172.31.41.217:31605/users/1
+curl 172.31.41.217:31605/users/2
+
+# Creating service using imperative command
+kubectl run nginx --image=nginx --port=80
+kubectl get po
+kubectl expose po nginx --name mysvc --type=NodePort --port=80 --target-port=80
+kubectl get no -o wide
+kubectl get all
+curl 172.31.41.217:31558
+```
