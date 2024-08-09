@@ -150,7 +150,8 @@ curl 172.31.41.217:31558
 kubectl get po -n kube-system -o wide
 kubectl get ds -n kube-system
 kubectl get ds
-vi ds.yaml
+vi ds.yaml //copy contents from this file
+  - https://github.com/designtypist/dev-workflow/blob/aa0196a70d326c4f22d63b850818e8f35981e6c1/docs/resources/containerization/daemonset-example.yaml
 kubectl apply -f ds.yaml
 kubectl get ds
 kubectl get po -o wide
