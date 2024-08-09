@@ -144,3 +144,14 @@ kubectl get no -o wide
 kubectl get all
 curl 172.31.41.217:31558
 ```
+
+### Daemonset
+```
+kubectl get po -n kube-system -o wide
+kubectl get ds -n kube-system
+kubectl get ds
+vi ds.yaml
+kubectl apply -f ds.yaml
+kubectl get ds
+kubectl get po -o wide
+```
