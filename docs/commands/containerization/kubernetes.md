@@ -143,6 +143,11 @@ kubectl expose po nginx --name mysvc --type=NodePort --port=80 --target-port=80
 kubectl get no -o wide
 kubectl get all
 curl 172.31.41.217:31558
+
+### Clean up
+kubectl delete po mysql web1
+kubectl delete svc mysql web
+kubectl delete po nginx
 ```
 
 ### Daemonset
@@ -155,4 +160,7 @@ vi ds.yaml //copy contents from this file
 kubectl apply -f ds.yaml
 kubectl get ds
 kubectl get po -o wide
+
+### Clean up
+kubectl delete ds fluentd-elasticsearch
 ```
