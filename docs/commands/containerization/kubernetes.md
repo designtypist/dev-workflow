@@ -164,3 +164,23 @@ kubectl get po -o wide
 ### Clean up
 kubectl delete ds fluentd-elasticsearch
 ```
+
+### Scheduling (Node Selector, Node Affinity, Pod Affinity)
+```
+# Node Selector
+kubectl get all
+kubectl get no --show-labels
+kubectl label no worker1 hdd=ssd
+kubectl get no --show-labels
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/a18a92e911b58667785a93c71a2601c9b100a65f/docs/resources/containerization/node-selector.yaml
+kubectl apply -f pod.yaml
+kubectl get po -o wide
+kubectl delete po first
+kubectl get no --show-labels
+kubectl label no worker1 hdd-  //delete label
+kubectl get no --show-labels
+kubectl apply -f pod.yaml 
+kubectl get po
+kubectl describe po  first
+```
