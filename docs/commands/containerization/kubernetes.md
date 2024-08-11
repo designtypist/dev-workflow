@@ -217,4 +217,41 @@ vi pod.yaml //copy contents from this file
 - https://github.com/designtypist/dev-workflow/blob/ce31469fe27ff5783d2a555f14920a1d914a0382/docs/resources/containerization/pod-anti-affinity
 kubectl apply -f pod.yaml 
 kubectl get po -o wide
+
+# Taint and tolerations for pod
+kubectl describe no master
+kubectl describe no worker1
+kubectl describe no worker2
+kubectl taint no worker1 hdd=ssd:NoSchedule
+kubectl describe no worker1
+
+kubectl run nginx --image=nginx --port=80 --dry-run=client -o yaml > pod.yaml
+vi pod.yaml
+kubectl apply -f pod.yaml
+kubectl get po -o wide
+kubectl delete po nginx
+
+kubectl get no
+kubectl cordon worker2 //disabled scheduling
+kubectl get no
+kubectl apply -f pod.yaml
+kubectl get po -o wide
+kubectl describe po nginx
+kubectl delete po nginx
+
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/4a92fd80b01a9bd1895f8414cd9494a0d1513f37/docs/resources/containerization/taint-and-tolerations.yaml
+kubectl apply -f pod.yaml 
+kubectl get po -o wide
+
+//clean up for taints and tolerations
+kubectl uncordon worker2
+kubectl taint no worker1 hdd-
+
+# Taint and tolerations for daemonset
+vi ds.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/d7b56d7ec82b341ce9b1995211cb7f071ecec3cd/docs/resources/containerization/ds-taints-and-tolerations.yaml
+kubectl apply -f ds.yaml 
+kubectl get ds
+kubectl get po -o wide
 ```
