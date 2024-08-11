@@ -284,3 +284,36 @@ kubectl apply -f cronjob.yaml
 watch kubectl get all
 ```
 
+### Config map
+```
+# Create configmaps from literal values
+kubectl get no
+kubectl get cm
+kubectl create cm mycm --from-literal=db_port=8080 --from-literal=db_host=192.168.1.5
+kubectl get cm
+kubectl describe cm mycm
+kubectl run nginx --image=nginx --port=80 --dry-run=client -o yaml > pod.yaml
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/d647ae69d79305e759c2de5ffe8c47e0c74d043b/docs/resources/containerization/configmap-literal-values.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl exec -it nginx bash
+kubectl exec -it nginx -- env
+
+# Create configmaps from file
+vi myconfig.ini
+
+logfile=myapp.log
+dbport=8080
+dbhost=localhost
+dbuser=admin
+
+kubectl create cm mycm1 --from-file=myconfig.ini
+kubectl describe cm mycm1
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/dcb9f4753b5d32eda0339c63bce5cf521e0e37d0/docs/resources/containerization/configmap-from-file.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl exec -it nginx bash
+  cat /etc/lala/myconfig.ini //run inside the pod
+```
