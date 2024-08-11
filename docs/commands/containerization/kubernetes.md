@@ -254,7 +254,33 @@ vi ds.yaml //copy contents from this file
 kubectl apply -f ds.yaml 
 kubectl get ds
 kubectl get po -o wide
+
+### Clean up
+kubectl delete ds fluentd-elasticsearch
+kubectl delete po nginx
 ```
 
 ### Jobs
+```
+# Job
+kubectl get job
+kubectl create job myjob --image=ubuntu:20.04 --dry-run=client -o yaml -- /bin/sh -c "sleep 10" > job.yaml
+vi job.yaml 
+kubectl apply -f job.yaml
+watch kubectl get all
+kubectl delete job myjob
+
+vi job.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/96bb6036949e9929b55baa1e658e6e13a3f056c5/docs/resources/containerization/job.yaml
+k apply -f job.yaml
+kubectl delete job myjob
+
+# Cronjob
+kubectl get cj
+kubectl create cj mycj --image=ubuntu:20.04 --schedule="*/1 * * * *" --dry-run=client -o yaml -- /bin/sh -c "sleep 10" > cronjob.yaml
+vi cronjob.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/01cc6b9206253ce63a27e5210b36cccc34bfd202/docs/resources/containerization/cronjob.yaml
+kubectl apply -f cronjob.yaml 
+watch kubectl get all
+```
 
