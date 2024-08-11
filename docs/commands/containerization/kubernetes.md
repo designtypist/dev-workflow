@@ -183,4 +183,38 @@ kubectl get no --show-labels
 kubectl apply -f pod.yaml 
 kubectl get po
 kubectl describe po  first
+
+# Node Affinity
+kubectl explain po
+...
+kubectl explain po.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms.matchExpressions
+kubectl get no --show-labels
+kubectl label no worker1 hdd=ssd
+kubectl get no --show-labels
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/547d5890ebe206b140f586e63892b6e8ac2780af/docs/resources/containerization/node-affinity.yaml
+kubectl apply -f pod.yaml 
+kubectl get po -o wide
+
+# Pod Affinity
+kubectl explain po.spec.affinity.podAffinity
+...
+kubectl explain po.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution.labelSelector.matchExpressions
+kubectl get po
+kubectl run nginx --image=nginx
+kubectl get po --show-labels
+kubectl label po nginx hdd=ssd
+kubectl get po --show-labels
+kubectl get po -o wide
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/75de5ae8bb2910b05a547fe7637d126a70b1b763/docs/resources/containerization/pod-affinity.yaml
+kubectl apply -f pod.yaml
+kubectl get po -o wide
+
+# Pod AntiAffinity
+kubectl get po -o wide
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/ce31469fe27ff5783d2a555f14920a1d914a0382/docs/resources/containerization/pod-anti-affinity
+kubectl apply -f pod.yaml 
+kubectl get po -o wide
 ```
