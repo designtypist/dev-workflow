@@ -244,7 +244,7 @@ vi pod.yaml //copy contents from this file
 kubectl apply -f pod.yaml 
 kubectl get po -o wide
 
-//clean up for taints and tolerations
+### Clean up
 kubectl uncordon worker2
 kubectl taint no worker1 hdd-
 
@@ -255,3 +255,6 @@ kubectl apply -f ds.yaml
 kubectl get ds
 kubectl get po -o wide
 ```
+
+### Jobs
+
