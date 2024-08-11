@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: first
+  name: first
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+             - key: hdd
+               operator: In
+               values:
+                 - ssd
+          topologyKey: kubernetes.io/hostname 
+  containers:
+  - image: rajendrait99/first:1.0
+    name: first
+    ports:
+    - containerPort: 8080
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
