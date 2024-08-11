@@ -17,7 +17,7 @@ spec:
                  - ssd
           topologyKey: kubernetes.io/hostname 
   containers:
-  - image: rajendrait99/first:1.0
+  - image: designtypist/first:1.0
     name: first
     ports:
     - containerPort: 8080
