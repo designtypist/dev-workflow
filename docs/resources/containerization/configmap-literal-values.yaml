@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    env:
+      - name: DBPORT
+        valueFrom:
+          configMapKeyRef:
+            name: mycm
+            key: db_port
+      - name: DBHOST
+        valueFrom:
+          configMapKeyRef:
+            name: mycm
+            key: db_host
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
