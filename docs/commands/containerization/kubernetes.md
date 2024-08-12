@@ -373,3 +373,45 @@ kubectl apply -f pod.yaml
 kubectl get po
 k exec -it nginx -- ls /etc/lala
 ```
+
+### Statefulset
+```
+git clone https://github.com/rskTech/k8s_material.git
+cd k8s_material/statefulset/
+vi sc.yaml
+kubectl apply -f sc.yaml
+kubectl get sc
+
+vi sfs.yaml
+kubectl apply -f sfs.yaml
+kubectl get sts
+kubectl get po
+kubectl get pvc
+
+vi pv.yaml
+kubectl apply -f pv.yaml
+kubectl get po
+kubectl get pv
+kubectl get pvc
+
+vi pv1.yaml
+kubectl apply -f pv1.yaml
+kubectl get po
+kubectl get pv
+kubectl get pvc
+
+vi pv2.yaml 
+kubectl apply -f pv2.yaml 
+kubectl get pvc
+kubectl get sts
+kubectl get po
+
+kubectl delete po web-0
+kubectl get po
+kubectl scale sts web --replicas=5
+kubectl get po
+kubectl scale sts web --replicas=3
+kubectl get po
+kubectl get pv
+kubectl get pvc
+```
