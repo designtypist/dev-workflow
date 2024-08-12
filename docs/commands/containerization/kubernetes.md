@@ -317,3 +317,35 @@ kubectl get po
 kubectl exec -it nginx bash
   cat /etc/lala/myconfig.ini //run inside the pod
 ```
+
+### Secrets
+```
+# Generic secret
+kubectl create secret generic db-secret --from-literal=dbpass=admin
+kubectl get secret
+kubectl describe secret db-secret
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/5d57f7493aea2ebc74d0f9f1610e62f8bd916a23/docs/resources/containerization/generic-secret.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl exec -it nginx -- env
+
+# Docker registry secret
+kubectl create secret docker-registry docker-secret --docker-email=example@gmail.com --docker-username=dev --docker-password=pass1234 --docker-server=my-registry.example:5000
+kubectl get secret
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/b7abe7f66651932ad5d6ba934cd79b9e438942b2/docs/resources/containerization/docker-registry-secret.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl exec -it nginx -- env
+
+# TLS secrets
+kubectl create secret tls my-tls-secret --cert=/etc/kubernetes/pki/ca.crt --key=/etc/kubernetes/pki/ca.key 
+kubectl get secret
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/4fa93d49f1a67ac76e331fba902daa93aa972d37/docs/resources/containerization/tls-secret.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl exec -it nginx bash
+  ls /etc/cert-data
+```
