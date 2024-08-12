@@ -349,3 +349,27 @@ kubectl get po
 kubectl exec -it nginx bash
   ls /etc/cert-data
 ```
+
+### PersistentVolume & PersistentVolumeClaim
+```
+kubectl explain pv.spec
+kubectl explain pv.spec.nfs
+kubectl explain pv.spec.vsphereVolume
+kubectl explain pv.spec.awsElasticBlockStore
+
+vi pv.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/8769d0129c393c1dc6ca07d318d277d2b4b23bcc/docs/resources/containerization/persistent-volume.yaml
+kubectl apply -f pv.yaml
+kubectl get pv
+
+vi pvc.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/7b575aff45da5afb82cbc750c9921bb0f5face59/docs/resources/containerization/persistent-volume-claim.yaml
+kubectl apply -f pvc.yaml
+kubectl get pvc
+
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/03c0da63bc1f57bbd1ce7516b060cfbc54592233/docs/resources/containerization/persistant-volume-pod.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+k exec -it nginx -- ls /etc/lala
+```
