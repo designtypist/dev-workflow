@@ -483,3 +483,58 @@ kubectl exec -it other bash
   apt-get update && apt-get install iputils-ping -y
   ping [db pod ip address] //should fail
 ```
+
+Kubectl configurations and Kind tools
+```
+vi .kube/config 
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.12.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+kind
+vi config //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/ed0d657abbaa4b7459a327b0c1ba902049c94236/docs/resources/containerization/kind-config.yaml
+kind create cluster --config config --name mycluster
+
+vi .kube/config
+kubectl get no
+kubectl get po
+kubectl config -h
+kubectl config get-clusters
+kubectl config get-users
+kubectl config get-contexts
+
+kubectl config use-context kubernetes-admin@kubernetes
+kubectl get no
+kubectl get po
+```
+
+RBAC (Role-based access control)
+```
+mkdir test
+cd test/
+openssl genrsa -out john.key 2048
+ls
+openssl req -new -key john.key -out john.csr -subj "/CN=john/O=examplegroup"
+ls
+sudo cp /etc/kubernetes/pki/ca.crt /home/labsuser/john.crt
+sudo chmod 777 john.crt john.key
+
+sudo openssl x509 -req -in john.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key  -CAcreateserial -out john.crt
+kubectl config set-credentials john --client-certificate=/home/labsuser/test/john.crt --client-key=/home/labsuser/test/john.key
+vi ~/.kube/config 
+kubectl config set-context mycontext --user=john --cluster=kubernetes
+vi ~/.kube/config
+
+vi role.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/afdd6cc32a63254892335fd01a4e25ea087dd2b3/docs/resources/containerization/role.yaml
+kubectl apply -f role.yaml
+kubectl create rolebinding myrolebinding --role=myrole --user=john
+kubectl config use-context mycontext
+kubectl get po
+kubectl run nginx --image=nginx  //execution will fail because of role
+kubectl get deploy  //execution will fail because of role
+kubectl get po -w
+kubectl config get-contexts
+kubectl config use-context kubernetes-admin@kubernetes
+kubectl get deploy
+```
