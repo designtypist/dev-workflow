@@ -415,3 +415,71 @@ kubectl get po
 kubectl get pv
 kubectl get pvc
 ```
+
+Assigning resources
+```
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/df6286a7a1e1d5a3755c09393edb5b9c65a521dd/docs/resources/containerization/assigning-resources.yaml
+kubectl apply -f pod.yaml
+kubectl get po
+kubectl describe po nginx
+kubectl get no
+kubectl describe no worker1
+```
+
+Resource quota
+```
+kubectl create ns myns
+kubectl get ns
+vi rq.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/ef6e565b5d6b8a99a04ee1bd3b4531591f22b453/docs/resources/containerization/resource-quota.yaml
+kubectl apply -f rq.yaml
+kubectl get quota -n myns
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/d280e4463510d6c43ac35684fd96a8956e13876a/docs/resources/containerization/resource-quota-pod.yaml
+kubectl apply -f pod.yaml 
+kubectl get po -n myns
+kubectl get quota -n myns
+```
+
+Priority class
+```
+kubectl api-resources | grep class
+vi pc.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/9932725c676007e4b9be23e8f851c2c1c16c6669/docs/resources/containerization/priority-class.yaml
+kubectl apply -f pc.yaml
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/9932725c676007e4b9be23e8f851c2c1c16c6669/docs/resources/containerization/priority-class-pod.yaml
+kubectl apply -f pod.yaml 
+kubectl get po
+```
+
+Network policy
+```
+kubectl run db --image=nginx
+kubectl run frontend --image=nginx
+kubectl run other --image=nginx
+kubectl get po -o wide
+kubectl exec -it frontend bash
+  apt-get update && apt-get install iputils-ping -y
+  ping [db pod ip address]
+kubectl exec -it other bash
+  apt-get update && apt-get install iputils-ping -y
+  ping [db pod ip address] //should succeed
+
+kubectl get po --show-labels
+kubectl label po db role=db
+kubectl label po frontend role=frontend
+kubectl get po --show-labels
+vi np.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/355b2c88b63ec05b67a8f82fe92823cabb31cf0d/docs/resources/containerization/network-policy.yaml
+kubectl apply -f np.yaml
+kubectl get networkpolicy
+kubectl get po -o wide
+kubectl exec -it frontend bash
+  apt-get update && apt-get install iputils-ping -y
+  ping [db pod ip address]
+kubectl exec -it other bash
+  apt-get update && apt-get install iputils-ping -y
+  ping [db pod ip address] //should fail
+```
