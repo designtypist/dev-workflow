@@ -1,0 +1,6 @@
+app:
+  name: myapp
+  replicas: 5
+  image: rajendrait99/first:1.0
+  port: 8080
+  type: NodePort
