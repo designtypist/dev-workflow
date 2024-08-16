@@ -538,3 +538,60 @@ kubectl config get-contexts
 kubectl config use-context kubernetes-admin@kubernetes
 kubectl get deploy
 ```
+
+Cluster maintenance
+```
+kubectl get po -o wide
+kubectl create deploy test --image=nginx
+kubectl scale deploy test --replicas=5
+kubectl get po -o wide
+kubectl drain worker1
+kubectl drain worker1 --force --ignore-daemonsets
+kubectl get po -o wide
+kubectl get no
+kubectl uncordon worker1  //enable scheduling
+kubectl get no
+```
+
+Liveness & readiness probe
+```
+vi pod.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/485811d8d1278deb39af7c8c8496cda219bb2012/docs/resources/containerization/liveness-and-readiness-probe.yaml
+kubectl apply -f pod.yaml 
+kubectl get po
+kubectl describe po nginx
+```
+
+Helm charts
+```
+snap install helm --classic
+helm create myapp
+cd myapp/
+rm values.yaml 
+rm -rf charts/
+rm -rf templates/*
+cd templates/
+vi deploy.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/78c92ee3d2b93b05ed8bcfc34c85db21d6d24bf9/docs/resources/containerization/helm-chart-deploy.yaml
+vi service.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/48db3685f0516f6a11d7b973c66c657a1b83d170/docs/resources/containerization/helm-chart-service.yaml
+vi ../values.yaml //copy contents from this file
+- https://github.com/designtypist/dev-workflow/blob/9a97564786b48e5b68a552557dad6be037378927/docs/resources/containerization/helm-chart-values.yaml
+
+cd ../..
+helm template myapp myapp/
+helm install myapp myapp/
+kubectl get all
+kubectl get no -o wide
+curl 172.31.4.187:31992
+helm list
+helm uninstall myapp
+helm install myapp myapp/
+k get all
+
+vi myapp/values.yaml
+  # change the version of the image
+helm upgrade myapp myapp/
+k get all
+helm -h
+```
