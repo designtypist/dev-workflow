@@ -42,33 +42,17 @@ sudo vim /etc/sudoers
 - insert into file [user] ALL=(ALL) NOPASSWD: ALL
 
 ## Let's Encrypt
+Installing Let's Encrypt
 ```
-sudo apt install letsencrypt
+sudo apt install certbot python3-certbot-nginx
+sudo systemctl enable certbot.timer
 sudo systemctl status certbot.timer
 ```
 
-### Create SSL Certificate
-1) Let's Encrypt Method
+Create SSL Certificate
 ```
-sudo certbot certonly --manual --agree-tos --preferred-challenges dns -d domain-name.com -d *.domain-name.com
-sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d domain-name.com //get a standalone ssl cert
-```
-
-2) Self-signed Method
-```
-sudo openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365
-```
-
-### Nginx
-```
-sudo apt install python3-certbot-nginx
-sudo certbot --nginx --agree-tos --preferred-challenges http -d domain-name.com
-```
-
-### Apache
-```
-sudo apt install python3-certbot-apache
-sudo certbot --apache --agree-tos --preferred-challenges http -d domain-name.com
+sudo certbot --nginx -d [domain name]
+    sudo certbot --nginx -d geektypist.com
 ```
 
 ## GNU Privacy Guard (Certificate Keys)
