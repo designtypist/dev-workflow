@@ -1,37 +1,7 @@
 # System Administrator Commands
 
-
-## Cockpit - Linux GUI
-> Linux GUI Administration Setup with CockPit
-
 ### Virtual Machines
 ### Docker
-
-### File Sharing Addons
-Installation
-```
-sudo apt-get install cockpit python3 samba nfs-kernel-server
-git clone https://github.com/45Drives/cockpit-file-sharing.git
-cd cockpit-file-sharing
-make install
-```
-
-### VMs and Docker Containers
-Installation
-```
-sudo apt install cockpit-machines -y
-sudo apt install cockpit-podman -y
-```
-
-### Samba Setup
-```
-vim /etc/samba/smb.conf
-```
-add “include = registry” under [global] section
-```
-sudo systemctl enable --now rpcbind nfs-server //refresh cockpit
-```
-
 
 ## Check System Statistics
 Check process status
@@ -131,28 +101,6 @@ chown -R www-data:www-data [directory]
 Check if user has sudo privileges
 ```
 sudo -l -U [username]
-```
-
-## Users and Groups
-Add & delete users 
-```
-useradd
-userdel [username] | sudo userdel -r [username]
-```
-
-User groups
-```
-groupadd [group name] //add user group
-groupdel [group name] //delete user group
-
-useradd -G [username] [group] //add user to group
-usermod -a -G [group] [user]
-usermod -G [username] [group]
-```
-
-Return user identity
-```
-id -a [username]
 ```
 
 ## Disk Partitions
