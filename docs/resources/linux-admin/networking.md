@@ -1,6 +1,6 @@
 # Networking
 
-### Network
+### Basic Networking
 Setup network configuration
 ```
 sudo vim /etc/netplan/config.yaml
@@ -12,11 +12,13 @@ Check network activity
 ```
 ping [ip addr / domain]
 ifconfig [ethernet interface]
-ip a
+ip a | r
 nsloop [server]
 dig [ip addr / domain]
 tracepath [ip addr / domain ]
+nc [destination] [port]
 nmcli
+netstat
 ```
 
 * Advanced methods
@@ -32,6 +34,49 @@ netstat -tulpn | grep ":8000"
 kill -9 [process id]
 ```
 
+### Setup network netplan configurations
+
+Create configuration for netplan
+```
+cd /etc/netplan/
+sudo touch config.yaml
+sudo vi config.yaml
+```
+
+Config.yaml Configuration Setup for Static IP
+```
+network:
+  version: 2
+  renderer: networkd
+  [network interface type]
+    ethernets:
+      or
+    wifis: 
+    
+    [network interface name]
+      eth0: 
+        or 
+      wlp7s0:
+      
+     [network interface settings]
+        dhcp4: no
+        nameservers:
+          addresses: [192.168.1.254, 8.8.8.8]
+        addresses: [192.168.1.100/24]
+        access-points:
+          "[wifi name]":
+            password: "[wifi password]"
+        routes:
+          - to: default
+            via: 192.168.1.1     
+```
+
+Apply netplan configuration
+```
+sudo netplan try //test 
+sudo netplan apply //apply configs
+```
+
 ### Hostname
 ```
 sudo vim /etc/hosts //edit hosts configuration file
@@ -45,6 +90,8 @@ sudo systemctl restart avahi-daemon //restart mDNS service
 ### DNS
 Check nameservers of domain
 ```
+host [domain]
+dig [domain]
 nslookup -type=ns [domain](ie. designtypist.com)
 ```
 
@@ -114,70 +161,8 @@ etherwake [mac address]
 wakeonlan [mac address]
 ```
 
-###Resources:
-- Linux:
-  Wake-on-LAN  
-  - https://kodi.wiki/view/HOW-TO:Set_up_Wake-on-LAN_for_Ubuntu
-  - https://www.cyberciti.biz/tips/linux-send-wake-on-lan-wol-magic-packets.html
-  - https://wiki.debian.org/WakeOnLan
-  - https://a3nm.net/blog/wakeonlan.html
-  BIND
-  - https://www.server-world.info/en/note?os=Ubuntu_22.04&p=dns&f=1
-  DNSMasq
-  - https://kifarunix.com/configure-local-dns-server-using-dnsmasq-on-ubuntu-20-04/ 
-  - https://stevessmarthomeguide.com/home-network-dns-dnsmasq/
-  - https://www.howtogeek.com/devops/how-to-run-a-local-network-dhcp-server-with-dnsmasq/
-- Windows:
-  - https://www.nirsoft.net/utils/wake_on_lan.html#DownloadLinks
-  - https://www.groovypost.com/howto/enable-wake-on-lan-windows-10/
-# Network Commands
-
-**Commonly used:**
+### Wireless Networks
 ```
-ifconfig
-ip a
-ip r 
-```
-
-### Setup network netplan configurations
-
-Create configuration for netplan
-```
-cd /etc/netplan/
-sudo touch config.yaml
-sudo vi config.yaml
-```
-
-Config.yaml Configuration Setup for Static IP
-```
-network:
-  version: 2
-  renderer: networkd
-  [network interface type]
-    ethernets:
-      or
-    wifis: 
-    
-    [network interface name]
-      eth0: 
-        or 
-      wlp7s0:
-      
-     [network interface settings]
-        dhcp4: no
-        nameservers:
-          addresses: [192.168.1.254, 8.8.8.8]
-        addresses: [192.168.1.100/24]
-        access-points:
-          "[wifi name]":
-            password: "[wifi password]"
-        routes:
-          - to: default
-            via: 192.168.1.1     
-```
-
-Apply netplan configuration
-```
-sudo netplan try //test 
-sudo netplan apply //apply configs
+iwlist //list nearby wireless networks
+iwconfig [wireless interface]
 ```
