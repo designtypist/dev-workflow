@@ -83,26 +83,6 @@ sudo fdisk -l //check Linux file system info
 sudo dmidecode -t memory | system | bios | processor //extract info about hardware info
 ```
 
-## Change Permissions
-Changing files or directories permissions
-```
-chmod g+rw- //group permissions
-chmod o+r-- //other permissions
-chmod a+rwx //all type permissions
-chmod 755 -R [directory]
-```
-
-Changing files or directories ownership
-```
-chgrp -R www-data [directory]
-chown -R www-data:www-data [directory]
-```
-
-Check if user has sudo privileges
-```
-sudo -l -U [username]
-```
-
 ## Disk Partitions
 Manipulate disk partitions
 ```
